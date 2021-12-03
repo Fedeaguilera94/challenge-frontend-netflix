@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  padding: 0 40px;
+  background-color: rgba(0, 0, 0, 0.335);
+  transition: 0.4s all ease;
+}
+.navbar.active {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  padding: 0px 30px;
+  background-color: #191919;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.menu li {
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.menu a {
+  cursor: pointer;
+}
+
+.logo {
+  width: 80px;
+  height: 60px;
+}

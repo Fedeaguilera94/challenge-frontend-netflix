@@ -1,12 +1,18 @@
 import React from "react";
 import netflix from "../../img/logo.png";
-import styles from "./NavBar.module.css";
+import "./NavBar.css";
+
 export default function NavBar() {
+  window.addEventListener("scroll", function () {
+    const header = document.querySelector(".navbar");
+    header.classList.toggle("active", this.window.scrollY > 0);
+  });
+
   return (
-    <div className={styles.navbar_bg}>
-      <div className={styles.navbar}>
-        <img className={styles.logo} src={netflix} alt="logo" />
-        <ul className={styles.menu}>
+    <div className="navbar_bg">
+      <div className="navbar">
+        <img className="logo" src={netflix} alt="logo" />
+        <ul className="menu">
           <a>
             <li>Inicio</li>
           </a>
