@@ -12,17 +12,17 @@ export default function Section({ url, title }) {
     Getdata();
   }, []);
 
-  /* console.log(title, movie); */
+  console.log(title, movie);
   const img_url = "https://image.tmdb.org/t/p/original";
 
   return (
     <div className="section_row">
-      <h3>{title}</h3>
+      <h3 className="title">{title}</h3>
       <div className="section_img">
         {movie.map((m) => (
           <img
             className="movie_img"
-            src={`${img_url}${m.poster_path}`}
+            src={`${img_url}${m.backdrop_path}`}
             alt={m.name}
           />
         ))}
