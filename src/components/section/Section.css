@@ -30,3 +30,20 @@
   font-size: 2rem;
   padding: 0 40px;
 }
+
+@media only screen and (max-width: 1024px) {
+  .movie_img {
+    border-radius: 10px;
+    max-height: 260px;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .movie_img {
+    border-radius: 10px;
+    max-height: 220px;
+  }
+}
