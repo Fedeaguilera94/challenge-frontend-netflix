@@ -1,20 +1,85 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Section.css";
+import Slider from "react-slick";
 
 export default function Section({ url, title }) {
   const [movie, setMovie] = useState([]);
 
-  const [scrollX, setScrollX] = useState(-400);
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} prueba`}
+        style={{
+          ...style,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#7e7e7e4a",
+          height: "40%",
+          width: "25px",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
 
-  const handleLeftArrow = () => {
-    let x = scrollX + 150;
-    if (x > 0) {
-      x = 0;
-    }
-    setScrollX(x);
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#7e7e7e4a",
+          height: "40%",
+          width: "25px",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 8,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
-
   useEffect(() => {
     async function Getdata() {
       const response = await (await axios.get(url)).data.results;
@@ -26,20 +91,59 @@ export default function Section({ url, title }) {
   const img_url = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div className="section_row">
+    <div>
+      <h3 className="title">{title}</h3>
+      <Slider {...settings}>
+        {movie.map((m) => (
+          <img
+            className="movie_img"
+            src={`${img_url}${m.poster_path}`}
+            alt={m.name}
+          />
+        ))}
+        {/*      <div>
+          <h1>1</h1>
+        </div>
+        <div>
+          <h1>2</h1>
+        </div>
+        <div>
+          <h1>3</h1>
+        </div>
+        <div>
+          <h1>3</h1>
+        </div>
+        <div>
+          <h1>3</h1>
+        </div>
+        <div>
+          <h1>3</h1>
+        </div>
+        <div>
+          <h1>3</h1>
+        </div>
+        <div>
+          <h1>3</h1>
+        </div>
+        <div>
+          <h1>3</h1>
+        </div>
+ */}
+      </Slider>
+    </div>
+    /*     <div className="section_row">
       <h3 className="title">{title}</h3>
       <div className="row">
         {movie.map((m) => (
           <div className="section_img">
             <img
               className="movie_img"
-              /* backdrop_path || poster_path */
               src={`${img_url}${m.poster_path}`}
               alt={m.name}
             />
           </div>
         ))}
       </div>
-    </div>
+    </div> */
   );
 }

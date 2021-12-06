@@ -1,4 +1,6 @@
 import "./App.css";
+import Footer from "./components/footer/Footer";
+
 import RandomVideo from "./components/randomvideo/RandomVideo";
 import Section from "./components/section/Section";
 let API_KEY = process.env.REACT_APP_API_KEY;
@@ -15,17 +17,20 @@ function App() {
     <>
       <RandomVideo url={url.netflix} />
 
-      <div>
+      <div className="section_container">
         <Section title={"Top"} url={url.popular} />
       </div>
-      <div>
+      <div className="section_container">
         <Section title={"Original Netflix"} url={url.netflix} />
       </div>
-      <div>
+      <div className="section_container">
         <Section title={"Comedy"} url={url.comedy} />
       </div>
-      <div>
+      <div className="section_container">
         <Section title={"History"} url={url.history} />
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   );
