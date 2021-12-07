@@ -47,3 +47,14 @@
     max-height: 220px;
   }
 }
+
+@media only screen and (max-width: 425px) {
+  .movie_img {
+    border-radius: 10px;
+    max-height: 160px;
+  }
+  .title {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}

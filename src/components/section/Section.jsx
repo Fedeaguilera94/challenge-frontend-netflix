@@ -72,9 +72,9 @@ export default function Section({ url, title }) {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 425,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
@@ -101,49 +101,7 @@ export default function Section({ url, title }) {
             alt={m.name}
           />
         ))}
-        {/*      <div>
-          <h1>1</h1>
-        </div>
-        <div>
-          <h1>2</h1>
-        </div>
-        <div>
-          <h1>3</h1>
-        </div>
-        <div>
-          <h1>3</h1>
-        </div>
-        <div>
-          <h1>3</h1>
-        </div>
-        <div>
-          <h1>3</h1>
-        </div>
-        <div>
-          <h1>3</h1>
-        </div>
-        <div>
-          <h1>3</h1>
-        </div>
-        <div>
-          <h1>3</h1>
-        </div>
- */}
       </Slider>
     </div>
-    /*     <div className="section_row">
-      <h3 className="title">{title}</h3>
-      <div className="row">
-        {movie.map((m) => (
-          <div className="section_img">
-            <img
-              className="movie_img"
-              src={`${img_url}${m.poster_path}`}
-              alt={m.name}
-            />
-          </div>
-        ))}
-      </div>
-    </div> */
   );
 }

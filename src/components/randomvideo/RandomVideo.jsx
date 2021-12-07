@@ -13,6 +13,7 @@ export default function RandomVideo({ url }) {
     }
     GetVideo();
   }, []);
+
   return (
     <>
       <div className="nav">
@@ -21,11 +22,14 @@ export default function RandomVideo({ url }) {
       <div className="detail_cont">
         <div className="video_image">
           <img
+            width={2048}
+            height={1151}
             className="image_detail"
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
             alt={movie.title}
           />
         </div>
+
         <article className="article_info">
           <div className="info">
             <div className="movie_title">

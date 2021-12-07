@@ -1,6 +1,5 @@
 import "./App.css";
 import Footer from "./components/footer/Footer";
-
 import RandomVideo from "./components/randomvideo/RandomVideo";
 import Section from "./components/section/Section";
 let API_KEY = process.env.REACT_APP_API_KEY;
@@ -16,7 +15,6 @@ function App() {
   return (
     <>
       <RandomVideo url={url.netflix} />
-
       <div className="section_container">
         <Section title={"Top"} url={url.popular} />
       </div>
