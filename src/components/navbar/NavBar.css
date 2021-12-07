@@ -53,4 +53,7 @@
   .navbar {
     padding: 0;
   }
+  .menu li {
+    display: none;
+  }
 }
